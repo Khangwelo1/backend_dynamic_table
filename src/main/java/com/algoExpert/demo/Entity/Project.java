@@ -1,6 +1,5 @@
 package com.algoExpert.demo.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,25 +13,19 @@ public class Project {
     private String title;
     private String description;
 
-    //    relationships
+//    relationships
     @OneToMany
     private List<Table> tables;
 
-    @JsonIgnore
-    @ManyToOne @JoinColumn(name = "user_id")
-    private  User user;
-
-
-    //    constructors
+//    constructors
     public Project() {
     }
 
-    public Project(Integer project_id, String title, String description, List<Table> tables, User user) {
+    public Project(Integer project_id, String title, String description, List<Table> tables) {
         this.project_id = project_id;
         this.title = title;
         this.description = description;
         this.tables = tables;
-        this.user = user;
     }
 
 // getters and setters
@@ -67,13 +60,5 @@ public class Project {
 
     public void setTables(List<Table> tables) {
         this.tables = tables;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

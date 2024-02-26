@@ -16,6 +16,7 @@ public class Task {
     private String end_date;
     private String status;
     private String priority;
+    private String comment;
 
 //    relationships
     @OneToMany
@@ -26,7 +27,7 @@ public class Task {
     }
 
     public Task(int task_id, String title, String description, String owner,
-                String start_date, String end_date, String status, String priority, List<Comment> comments) {
+                String start_date, String end_date, String status, String priority, String comment, List<Comment> comments) {
         this.task_id = task_id;
         this.title = title;
         this.description = description;
@@ -35,6 +36,7 @@ public class Task {
         this.end_date = end_date;
         this.status = status;
         this.priority = priority;
+        this.comment = comment;
         this.comments = comments;
     }
 
@@ -104,7 +106,13 @@ public class Task {
         this.priority = priority;
     }
 
+    public String getComment() {
+        return comment;
+    }
 
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
     public List<Comment> getComments() {
         return comments;
